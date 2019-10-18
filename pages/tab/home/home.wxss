@@ -1,0 +1,48 @@
+/* pages/tab/home/home.wxss */
+
+
+/* 轮播图样式
+
+swiper {
+    height: 350rpx;
+}
+
+navigator,
+image {
+    height: 100%;
+    width: 750rpx;
+} */
+
+
+/* 分类样式 */
+
+.cates {
+    display: flex;
+    justify-content: space-around;
+    margin: 40rpx 0;
+}
+
+.cates image {
+    width: 128rpx;
+    height: 140rpx;
+}
+
+
+/* 楼层区 */
+
+.floor-container .floor-item .floor-item-title {
+    height: 50rpx;
+    width: 640rpx;
+    display: block;
+}
+
+.floor-container .floor-img-box .floor-item-pic {
+    float: left;
+    height: 190rpx;
+    margin: 8rpx;
+    margin-top: 0;
+}
+
+.floor-container .floor-img-box .floor-item-pic:nth-child(1) {
+    height: 390rpx;
+}

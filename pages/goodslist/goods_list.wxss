@@ -1,0 +1,46 @@
+/* pages/goodslist/goods_list.wxss */
+
+.goods-list .item {
+    position: relative;
+    padding: 5px 15px;
+    font-size: 12px;
+    color: #333;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.goods-list .item .left {
+    width: 90px;
+    height: 90px;
+    flex: none;
+    margin-right: 10px;
+}
+
+.goods-list .left .left_img {
+    width: 100%;
+    height: 100%;
+}
+
+.goods-list .right {
+    flex: 1;
+}
+
+.goods-list .right .title {
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.goods-list .right .bottom {
+    line-height: 20px;
+}
+
+.goods-list .right .price {
+    display: inline;
+    font-weight: 700;
+    color: #f44;
+}
+
+.goods-list .right .num {
+    float: right;
+}

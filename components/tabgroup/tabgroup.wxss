@@ -1,0 +1,16 @@
+.tabgroup .tab-item {
+    padding: 20px 12px 20px 9px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #7d7e80;
+    background-color: #f8f8f8;
+    border-left: 3px solid transparent;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.tabgroup .active {
+    color: #333;
+    font-weight: 700;
+    border-color: #f44;
+}

@@ -1,0 +1,23 @@
+<!-- pages/tab/cates/cates.wxml -->
+<view class="cates-container">
+    <!-- 左侧一级列表 -->
+    <scroll-view class="left" scroll-y style="height: {{screenHeight}}px">
+        <my-tabgroup tabgroupdata="{{categoriseData}}" bind:changed="tabChanged"></my-tabgroup>
+    </scroll-view>
+    <scroll-view class="right" scroll-y style="height: {{screenHeight}}px">
+        <!-- 二级分类列表 -->
+        <block wx:for="{{childData}}" wx:key="index">
+            <view class="title">
+                <text class="cate_title" space="ensp">/ {{item.cat_name}} /</text>
+            </view>
+            <view class="cate_content">
+                <block wx:for="{{item.children}}" wx:key="index">
+                    <view class="cate_item" bindtap="cateTapHandler" data-id="{{item.cat_id}}">
+                        <image class="thumbImg" src="{{item.cat_icon}}"/>
+                        <view class="thumbTitle">{{item.cat_name}}</view> 
+                    </view>
+                </block>
+            </view>
+        </block>
+    </scroll-view>
+</view>

@@ -1,0 +1,17 @@
+<!--pages/goodslist/goods_list.wxml-->
+<view class="goods-list">
+    <block wx:for="{{goodsListData.goods}}" wx:key="index">
+        <view class="item">
+            <view class="left">
+                <image class="left_img" src="{{item.goods_small_logo}}"/>
+            </view>
+            <view class="right">
+                <view class="title">{{item.goods_name}}</view>
+                <view class="bottom">
+                    <view class="price">￥ {{item.goods_price}}</view>
+                    <view class="num">x {{item.goods_number}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

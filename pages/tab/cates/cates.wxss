@@ -1,0 +1,50 @@
+/* pages/tab/cates/cates.wxss */
+
+.cates-container {
+    display: flex;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: auto;
+    color: red
+}
+
+.left {
+    width: 85px;
+}
+
+.right {
+    flex: 1;
+}
+
+.right .title {
+    text-align: center;
+}
+
+.right .title .cate_title {
+    font-size: 26rpx;
+    font-weight: bold;
+    display: inline-block;
+    margin: 30rpx 0;
+}
+
+.right .cate_content {
+    text-align: center;
+    overflow: hidden;
+}
+
+.right .cate_content .cate_item {
+    width: 33.333333333%;
+    float: left;
+    margin-top: 10rpx;
+}
+
+.right .cate_item .thumbImg {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.right .cate_item .thumbTitle {
+    font-size: 24rpx;
+}

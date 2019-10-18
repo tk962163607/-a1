@@ -1,0 +1,6 @@
+<!-- components/tabgroup/tabgroup.wxml -->
+<view class="tabgroup" bindtap="tabTap">
+    <view data-index="{{index}}" class="tab-item {{active === index? 'active':''}}" wx:for="{{tabgroupdata}}" wx:key="index">
+        <view data-index="{{index}}" class="container">{{item.cat_name}}</view>
+    </view>
+</view>

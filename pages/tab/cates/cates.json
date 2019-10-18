@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "my-tabgroup": "../../../components/tabgroup/tabgroup"
+    }
+}
