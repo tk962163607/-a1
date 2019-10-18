@@ -1,6 +1,7 @@
 <!--pages/goodslist/goods_list.wxml-->
 <view class="goods-list">
-    <block wx:for="{{goodsListData.goods}}" wx:key="index">
+   <view class="card">
+       <block wx:for="{{goodsListData}}" wx:key="index">
         <view class="item">
             <view class="left">
                 <image class="left_img" src="{{item.goods_small_logo}}"/>
@@ -14,4 +15,8 @@
             </view>
         </view>
     </block>
+   </view>
+
+   <!-- 数据加载完毕后的提示消息 -->
+   <view class="over_line" hidden="{{!isover}}">-------- 我是有底线的 --------</view>
 </view>

@@ -7,8 +7,9 @@ import { httpURL } from './httpURL.js';
  */
 export function httpRequestGet(url, data, tag = 'default') {
     return new Promise(function(resolve, reject) {
+        if (wx.showLoading)
         // 弹出加载提示框
-        wx.showLoading({
+            wx.showLoading({
             title: '正在努力请求中',
             mask: true,
         });

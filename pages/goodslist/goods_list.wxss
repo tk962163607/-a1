@@ -1,6 +1,6 @@
 /* pages/goodslist/goods_list.wxss */
 
-.goods-list .item {
+.card .item {
     position: relative;
     padding: 5px 15px;
     font-size: 12px;
@@ -8,39 +8,48 @@
     background-color: #fafafa;
     box-sizing: border-box;
     display: flex;
+    margin-bottom: 1px;
 }
 
-.goods-list .item .left {
+.card .item .left {
     width: 90px;
     height: 90px;
     flex: none;
     margin-right: 10px;
 }
 
-.goods-list .left .left_img {
+.card .left .left_img {
     width: 100%;
     height: 100%;
 }
 
-.goods-list .right {
+.card .right {
     flex: 1;
 }
 
-.goods-list .right .title {
+.card .right .title {
     font-weight: 700;
     line-height: 16px;
 }
 
-.goods-list .right .bottom {
+.card .right .bottom {
     line-height: 20px;
 }
 
-.goods-list .right .price {
+.card .right .price {
     display: inline;
     font-weight: 700;
     color: #f44;
 }
 
-.goods-list .right .num {
+.card .right .num {
     float: right;
+}
+
+.over_line {
+    font-size: 24rpx;
+    text-align: center;
+    height: 60rpx;
+    line-height: 60rpx;
+    color: #ddd;
 }
