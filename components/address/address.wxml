@@ -1,0 +1,8 @@
+<!-- 收货地址区域 -->
+<view class="address " bindtap="chooseAddress">
+    <view>
+        <text>送至</text>
+        <text>{{addressStr}}</text>
+    </view>
+    <text class="icon .icon-xiayibux"></text>
+</view>

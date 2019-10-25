@@ -4,5 +4,6 @@ export const httpURL = {
     HOME_CATE_URL: "/home/catitems",
     FLOOR_URL: "/home/floordata",
     CATEGORIES_URL: "/categories",
-    GOODS_LIST_URL: "/goods/search"
+    GOODS_LIST_URL: "/goods/search",
+    GOODS_DETAIL_URL: "/goods/detail"
 }

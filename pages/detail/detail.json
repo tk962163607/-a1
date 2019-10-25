@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "my-address": "../../components/address/address",
+        "van-tabs": "../../assets/vant/tabs/index",
+        "van-tab": "../../assets/vant/tab/index",
+        "van-goods-action": "../../assets/vant/goods-action/index",
+        "van-goods-action-icon": "../../assets/vant/goods-action-icon/index",
+        "van-goods-action-button": "../../assets/vant/goods-action-button/index",
+        "my-action-sheet": "../../components/actionsheet/actionsheet"
+    }
+}

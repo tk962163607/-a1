@@ -32,4 +32,9 @@
         </view>
       </view>
    </view>
+<!-- 扫描二维码的图标 -->
+   <view class="erweima" bindtap="saomiao">
+      <view class="icon .icon-saomiaox">
+      </view>
+   </view>
 </view>

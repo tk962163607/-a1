@@ -41,8 +41,16 @@ Page({
         let data = await httpRequestGet(httpURL.GOODS_LIST_URL, params, "GOOD_LIST")
         this.setData({
             goodsListData: [...this.data.goodsListData, ...data.message.goods],
-            totalCount: data.total
+            totalCount: data.message.total
         })
+    },
+    // 商品item的点击事件
+    cardItemTabHandler: function(e) {
+        let pid = e.currentTarget.dataset.pid;
+        wx.navigateTo({
+            url: '/pages/detail/detail?pid=' + pid,
+        });
+
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

@@ -1,5 +1,6 @@
 // pages/tab/home/home.js
-const { httpRequestGet, httpURL } = require('../../../http/httpRequest.js')
+import { httpRequestGet, httpURL } from '../../../http/httpRequest.js';
+import utils from '../../../utils/utils.js'
 const { regeneratorRuntime } = global
 Page({
 
@@ -44,6 +45,28 @@ Page({
         this.setData({
             floorData: data.message
         })
+    },
+    /**
+     * 扫描二维码
+     */
+    saomiao: async function() {
+        let res = await utils.scanCode()
+        if (res) {
+            wx.showLoading({
+                title: "跳转中",
+                mask: true
+            });
+
+            // 如果返回的数据不为null，就代表成功，利用导航跳转到详情页面
+            wx.navigateTo({
+                url: res,
+                complete: () => {
+                    wx.hideLoading();
+                }
+            });
+
+
+        }
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

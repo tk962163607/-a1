@@ -1,0 +1,15 @@
+@import"../../assets/fontcss/index.wxss";
+.address {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24rpx;
+    padding: 25rpx 10rpx 25rpx 10rpx;
+}
+
+.address>view text:nth-child(1) {
+    margin-right: 20rpx;
+}
+
+.address>view text:nth-child(2) {
+    color: #666;
+}

@@ -1,0 +1,39 @@
+/* components/actionsheet/actionsheet.wxss */
+
+.action-sheet {
+    position: fixed;
+    height: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ccc;
+    transition: height 2s;
+    overflow: hidden;
+}
+
+.action-sheet .item {
+    text-align: center;
+    font-size: 40rpx;
+    margin-bottom: 5rpx;
+    background-color: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-radius: 0;
+}
+
+
+/* 去掉默认的after里面定义的圆角边框 */
+
+.action-sheet button::after {
+    content: "";
+    border-radius: 0;
+}
+
+.action-sheet .cancel {
+    text-align: center;
+    font-size: 40rpx;
+    margin-top: 10rpx;
+    background-color: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-radius: 0;
+}

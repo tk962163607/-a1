@@ -2,7 +2,7 @@
 <view class="goods-list">
    <view class="card">
        <block wx:for="{{goodsListData}}" wx:key="index">
-        <view class="item">
+        <view class="item" bindtap="cardItemTabHandler" data-pid="{{item.goods_id}}">
             <view class="left">
                 <image class="left_img" src="{{item.goods_small_logo}}"/>
             </view>

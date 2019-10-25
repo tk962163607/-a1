@@ -1,0 +1,11 @@
+<view animation="{{animationData}}" class="action-sheet">
+    <block wx:for="{{actionItems}}" wx:key="index">
+        <button class="item" bindtap="actionItemTap" data-index="{{index}}" wx:if="{{item === '分享'}}" open-type="share">
+            {{item}}
+        </button>
+        <button class="item" bindtap="actionItemTap" data-index="{{index}}" wx:else>
+            {{item}}
+        </button>
+    </block>
+    <view class="cancel" bindtap="actionCancel">取消</view>
+</view>

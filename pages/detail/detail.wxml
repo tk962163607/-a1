@@ -1,0 +1,81 @@
+<!-- pages/detail/detail.wxml -->
+<view class="goods_detail">
+  <!-- 商品轮播图区域 -->
+  <swiper indicator-dots circular>
+    <block wx:for="{{goodsInfo.pics}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item.pics_big}}" bindtap="preview" data-url="{{item.pics_big}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 商品信息区域 -->
+  <view class="goods_info">
+    <!-- 价格、名称、运费 -->
+    <view class="box1">
+      <view class="price">￥{{goodsInfo.goods_price}}</view>
+      <view class="goods_name">
+        <view class="left">{{goodsInfo.goods_name}}</view>
+        <view class="right">
+          <van-icon name="star-o"></van-icon>
+          <view bindtap="createErWeiMa" class="icon icon-erweima" data-pid="{{goodsInfo.goods_id}}"></view>
+        </view>
+      </view>
+      <view class="yunfei">快递：免运费</view>
+    </view>
+    <view class="sep_line"></view>
+    <!-- 促销已选区域 -->
+    <view class="box2">
+      <!-- 促销 -->
+      <view>
+        <text>促销</text>
+        <text>满300元减30元</text>
+      </view>
+      <!-- 已选 -->
+      <view>
+        <text>已选</text>
+        <text>黑色/S/1件</text>
+      </view>
+    </view>
+    <view class="sep_line"></view>
+    <my-address></my-address>
+    <view class="sep_line"></view>
+  </view>
+  <!-- 商品详情区域 -->
+  <van-tabs>
+    <van-tab title="图文详情">
+      <import src="../../assets/wxParse/wxParse.wxml" />
+      <!-- 这里data中article为bindName -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </van-tab>
+    <van-tab title="规格参数" class="tab2">
+      <block wx:for="{{goodsInfo.attrs}}" wx:key="index">
+        <view class="item">
+          <view class="name">{{item.attr_name}}</view>
+          <view class="value">{{item.attr_value}}</view>
+        </view>
+      </block>
+    </van-tab>
+  </van-tabs>
+  <!-- 商品导航区域 -->
+  <van-goods-action>
+    <van-goods-action-icon icon="chat-o" text="客服" open-type="contact" />
+    <van-goods-action-icon icon="cart-o" text="购物车" url="/pages/tab/cart/cart" />
+    <van-goods-action-button text="加入购物车" type="warning" bindtap="addToCart" />
+    <van-goods-action-button text="立即购买" bindtap="onClickButton" />
+  </van-goods-action>
+</view>
+<!-- 二维码的结构 -->
+<view class="erweima-mask {{isShowErWeiMa? 'show':'hide'}}" bindtap="maskTapHandler" data-target="mask">
+  <view class="container">
+    <view class="hd">
+        <view class="hd-top">生成的二维码</view>
+        <view class="hd-bottom">(长按下方可以保存和分享二维码)</view>
+    </view>
+    <!-- canvas-id 要和代码里面  new QRCode 的第一个参数保持一致 -->
+    <canvas class='canvas' style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas' bindlongtap='save'></canvas>
+  </view>
+</view>
+<!-- action-sheet结构 -->
+<!-- actionChanged 里面item条目点击的事件 -->
+<!-- keepStatus 内部组件更改了状态值，需要同步给外界 -->
+<my-action-sheet actionItems="{{actionItems}}" isShow="{{isShow}}" bind:actionChanged="actionChanged" bind:keepStatus="keepStatus"></my-action-sheet>

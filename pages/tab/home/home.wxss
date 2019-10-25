@@ -13,6 +13,7 @@ image {
     width: 750rpx;
 } */
 
+@import "../../../assets/fontcss/index.wxss";
 
 /* 分类样式 */
 
@@ -45,4 +46,16 @@ image {
 
 .floor-container .floor-img-box .floor-item-pic:nth-child(1) {
     height: 390rpx;
+}
+
+.erweima {
+    position: absolute;
+    top: 15rpx;
+    right: 20rpx;
+    z-index: 9999;
+}
+
+.erweima .icon {
+    font-size: 60rpx;
+    color: rgba(0, 0, 0, .5)
 }
