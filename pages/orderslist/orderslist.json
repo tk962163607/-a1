@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "van-tabs": "../../assets/vant/tabs/index",
+        "van-tab": "../../assets/vant/tab/index",
+        "van-panel": "../../assets/vant/panel/index",
+        "my-card": "../../components/card/card",
+        "van-cell": "../../assets/vant/cell/index"
+    }
+}

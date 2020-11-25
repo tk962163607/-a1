@@ -59,7 +59,7 @@
   <!-- 商品导航区域 -->
   <van-goods-action>
     <van-goods-action-icon icon="chat-o" text="客服" open-type="contact" />
-    <van-goods-action-icon icon="cart-o" text="购物车" url="/pages/tab/cart/cart" />
+    <van-goods-action-icon icon="cart-o" text="购物车" url="/pages/tab/cart/cart" link-type="switchTab" info="{{total}}"/>
     <van-goods-action-button text="加入购物车" type="warning" bindtap="addToCart" />
     <van-goods-action-button text="立即购买" bindtap="onClickButton" />
   </van-goods-action>

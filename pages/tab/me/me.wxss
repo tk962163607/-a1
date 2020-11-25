@@ -1,1 +1,38 @@
-/* pages/tab/me/me.wxss */
+/**index.wxss**/
+
+.user-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 200rpx 0;
+    box-sizing: border-box;
+}
+
+.user-container .userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-container .userinfo-avatar {
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+}
+
+.user-container .userinfo-nickname {
+    color: #aaa;
+}
+
+.user-container .usermotto {
+    margin-top: 200px;
+}
+
+.user-container .order {
+    font-size: 26rpx;
+    color: #d81e06;
+    text-align: center;
+}

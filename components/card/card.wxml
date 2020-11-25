@@ -1,0 +1,16 @@
+<view class="card">
+    <view class="item">
+        <view class="left left-view">
+            <image class="left_img" src="{{thumb ? thumb: '../../assets/icon/timg.jpg'}}" wx:if="{{thumb}}"/>
+            <slot name="thumb"></slot>
+        </view>
+        <view class="right">
+            <view class="title" wx:if="{{title}}">{{title}}</view>
+            <view class="desc">
+                <view class="price" wx:if="{{price}}">￥ {{price}}</view>
+                <view class="num" wx:if="{{num}}">x {{num}}</view>
+                <slot name="desc"></slot>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,40 @@
+  <view class="order_container">
+    <!-- 选择收货地址按钮区域 -->
+    <view class="choose_address_box" wx:if="{{addressInfo === null}}">
+      <button type="warn" size="mini" bindtap="chooseAddress">+ 选择收货地址</button>
+    </view>
+    <!-- 收货人信息区域 -->
+    <view class="address_box" wx:else>
+      <!-- 收货人，联系电话 -->
+      <view class="box1">
+        <text>收货人：{{addressInfo.userName}}</text>
+        <view bindtap="chooseAddress">
+          <text>联系电话：{{addressInfo.telNumber}}</text>
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <!-- 收货地址 -->
+      <view class="box2">收货地址：{{addressStr}}</view>
+    </view>
+
+    <!-- 分割线 -->
+    <image src="../../assets/images/cart_border@2x.png" class="sep_line"></image>
+
+    <!-- 商品列表 -->
+    <view class="goods_list">
+      <block wx:for="{{cart}}" wx:key="id">
+        <my-card num="{{item.count}}" price="{{item.price}}" title="{{item.name}}" thumb="{{item.pic}}" />
+      </block>
+    </view>
+
+    <!-- 订单支付区域 -->
+    <view class="submit-bar">
+      <view class="submitbar-container">
+        <view class="submit-text">
+          <text>合计:</text>
+          <text class="price">{{totalPrice}}</text>
+        </view>
+        <button class="submit-btn" bindtap="submitOrder">{{submit}}</button>
+      </view>
+    </view>
+  </view>

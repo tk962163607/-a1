@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+    "usingComponents": {
+        "goods-card": "../../../components/card/card",
+        "stepper": "../../../components/stepper/stepper",
+        "van-swipe-cell": "../../../assets/vant/swipe-cell/index"
+    }
 }

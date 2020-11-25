@@ -1,0 +1,6 @@
+<!-- components/stepper/stepper.wxml -->
+<view class="stepper">
+    <view class="reduce {{reduceDisabled ? 'reduce--disabled':''}}" bindtap="reduceTap" hover-class="stepper_reduce--hover" hover-stay-time="70"></view>
+    <input type="number"  value="{{ value }}" disabled="{{true}}" />
+    <view class="add {{addDisabled ? 'add--disabled':''}}" bindtap="addTap" hover-class="stepper_add--hover" hover-stay-time="70"></view>
+</view>

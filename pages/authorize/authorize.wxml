@@ -1,0 +1,10 @@
+<!-- pages/authorize/authorize.wxml -->
+<view class="authorize">
+        <image class="logo" src="../../assets/icon/timg.jpg" mode="" lazy-load="false" />
+        <view class="login-type">
+            <button class="wx-login" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+        </view>
+        <view class="desc">
+            登陆即代表您同意我们的 <a href="#">服务协议</a> 和 <a href="#">隐私政策</a>
+        </view>
+</view>

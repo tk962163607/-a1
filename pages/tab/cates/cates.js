@@ -22,6 +22,7 @@ Page({
     onLoad: function(options) {
         this.requestCategoriseData()
     },
+
     /**
      * 加载分类列表的数据
      */
@@ -60,7 +61,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        getApp().updateTabBarBadge();
     },
 
     /**

@@ -139,5 +139,115 @@ export default {
             })
 
         }))
+    },
+    /**
+     * 调用微信登录
+     */
+    wxLogin() {
+        return new Promise((resolve, reject) => {
+            wx.login({
+                timeout: 10000,
+                success: (result) => {
+                    if (result.errMsg == "login:ok") {
+                        console.log("微信登录成功")
+                        resolve(result.code)
+                    } else {
+                        console.log("微信登录失败")
+                        reject(null)
+                    }
+                },
+                fail: () => {
+                    console.log("登录失败")
+                    reject(null)
+                },
+            });
+        })
+    },
+    /**
+     * 检查用户信息的授权
+     */
+    checkUserInfoAuthorize() {
+        return new Promise((resolve, reject) => {
+            wx.getSetting({
+                success: (result) => {
+                    if (result.errMsg == "getSetting:ok") {
+                        // 调用授权成功，授权信息里面包含了 地址，用户信息，定位，我们判断用户信息是否授权就行了
+                        if (result.authSetting['scope.userInfo']) {
+                            // 授权成功
+                            resolve(true)
+                        } else {
+                            // 授权失败
+                            reject(false)
+                        }
+                    }
+                },
+                fail: () => {
+                    // 授权失败
+                    reject(false)
+                },
+                complete: () => {}
+            });
+        })
+    },
+    /**
+     * 获取微信用户信息
+     */
+    getUserInfo() {
+        return new Promise((resolve, reject) => {
+            wx.getUserInfo({
+                withCredentials: 'true',
+                lang: 'zh_CN',
+                timeout: 10000,
+                success: (result) => {
+                    if (result.errMsg == "getUserInfo:ok") {
+                        console.log('获取用户信息成功')
+                        resolve(result)
+                    } else {
+                        console.log("获取用户信息失败")
+                        reject(null)
+                    }
+                },
+                fail: () => {
+                    console.log("获取用户信息失败")
+                    reject(null)
+                }
+            });
+        })
+    },
+    /**
+     * 微信支付
+     * @param {*} payOptions
+     * @return isPaySuccess  true 代表支付成功 | false 代表支付失败 
+     */
+    requestPay(payOptions) {
+        return new Promise((resolve, reject) => {
+            // 进行订单的支付，调用微信支付功能
+            wx.requestPayment({
+                //时间戳
+                timeStamp: payOptions.timeStamp,
+                //随机字符串
+                nonceStr: payOptions.nonceStr,
+                //统一下单接口返回的 prepay_id 参数值
+                package: payOptions.package,
+                //签名算法
+                signType: payOptions.signType,
+                //签名
+                paySign: payOptions.paySign,
+                success: (result) => {
+                    if (result.errMsg === "requestPayment:ok")
+                        resolve(true)
+                },
+                fail: () => {
+                    reject(false)
+                    wx.showToast({
+                        title: '支付失败',
+                        icon: 'none',
+                        duration: 1500,
+                    });
+
+                },
+                complete: () => {}
+            });
+        })
     }
 }

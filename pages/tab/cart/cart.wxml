@@ -1,2 +1,37 @@
-<!--pages/tab/cart/cart.wxml-->
-<text>pages/tab/cart/cart.wxml</text>
+<view>
+  <!-- 空白的购物车 -->
+  <view class="empty_cart" wx:if="{{isEmpty}}">
+    <image src="/assets/images/cart_empty@2x.png" />
+    <view>哎呦，购物车空空如也~</view>
+  </view>
+  <view class="cart-container" wx:else>
+    <block wx:for="{{carts}}" wx:key="index">
+      <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 0.1 }}">
+        <goods-card title="{{item.name}}" left-view="left-view">
+          <view slot="thumb" class="thumb">
+            <checkbox-group bindchange="checkboxChanged" data-id="{{item.id}}">
+              <checkbox color="#d81e06" value="{{item.id}}" checked="{{item.isCheck? true:false}}"></checkbox>
+            </checkbox-group>
+            <image src="{{item.pic}}" />
+          </view>
+          <view slot="desc" class="desc">
+            <!-- 商品的价格 -->
+            <text class="price">￥{{item.price}}</text>
+            <!-- 商品的数量 -->
+            <stepper class="stepper" value="{{item.count}}" bind:changed="countChanged" data-id="{{item.id}}" />
+          </view>
+        </goods-card>
+        <view slot="right" class="close" bindtap="delete" data-id="{{item.id}}">删除</view>
+      </van-swipe-cell>
+    </block>
+    <view class="submit-bar">
+      <view class="submitbar-container">
+        <view class="submit-text">
+          <text>合计:</text>
+          <text class="price">{{totalPrice}}</text>
+        </view>
+        <button class="submit-btn" bindtap="submitOrder">{{submit}}</button>
+      </view>
+    </view>
+  </view>
+</view>

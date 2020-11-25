@@ -136,3 +136,16 @@
     font-size: 26rpx;
     color: #ccc;
 }
+
+
+/* 修改 vant里面样式 */
+
+view.van-icon-cart-o {
+    overflow: visible;
+}
+
+view.van-icon-cart-o .van-info {
+    font-size: 26rpx;
+    min-width: 28rpx;
+    line-height: 30rpx;
+}

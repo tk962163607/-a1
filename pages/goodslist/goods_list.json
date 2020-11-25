@@ -1,5 +1,7 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "goods-card": "../../components/card/card"
+    },
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 50
 }

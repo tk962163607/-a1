@@ -6,6 +6,7 @@ import { httpURL } from './httpURL.js';
  * @param {*} tag  标识，方便区分哪个请求
  */
 export function httpRequestGet(url, data, tag = 'default') {
+    let optionsHeader = createOptionsHeader()
     return new Promise(function(resolve, reject) {
         if (wx.showLoading)
         // 弹出加载提示框
@@ -17,6 +18,7 @@ export function httpRequestGet(url, data, tag = 'default') {
             url: httpURL.BASE_URL + url,
             method: "GET",
             data: data,
+            header: optionsHeader,
             success: function(res) {
                 console.log(tag, res);
                 // 请求成功 状态码等于200，把数据返回到页面，如果不等于200，提示用户
@@ -46,7 +48,25 @@ export function httpRequestGet(url, data, tag = 'default') {
         })
     })
 }
-
+/**
+ * 构建请求头
+ * @return header 封装好的请求头
+ */
+function createOptionsHeader() {
+    let header = {}
+    try {
+        header['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        // 获取 token信息
+        let token = wx.getStorageSync("token");
+        if (token) {
+            header["Authorization"] = token
+        }
+    } catch (error) {
+        console.log("获取token失败")
+    } finally {
+        return header;
+    }
+}
 /**
  * 封装post方式的请求，返回Promise对象，那么在页面就可以使用 async/await方式来进行同步请求
  * @param {*} url  请求路径
@@ -54,6 +74,7 @@ export function httpRequestGet(url, data, tag = 'default') {
  * @param {*} tag  标识，方便区分哪个请求
  */
 export function httpRequestPost(url, data, tag = 'default') {
+    let optionsHeader = createOptionsHeader()
     return new Promise(function(resolve, reject) {
         // 弹出加载提示框
         wx.showLoading({
@@ -64,6 +85,7 @@ export function httpRequestPost(url, data, tag = 'default') {
             url: httpURL.BASE_URL + url,
             method: "POST",
             data: data,
+            header: optionsHeader,
             success: function(res) {
                 console.log(tag, res);
                 // 请求成功 状态码等于200，把数据返回到页面，如果不等于200，提示用户

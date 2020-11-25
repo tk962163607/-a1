@@ -13,7 +13,7 @@
    <!-- 分类区域 -->
    <view class="cates">
       <block wx:for="{{cateData}}" wx:key="index">
-        <navigator url="/pages/tabs/cates" open-type="{{item.open_type}}" wx:if="{{item.navigator_url !== undefined}}" hover-class="none">
+        <navigator url="/pages/tab/cates/cates" open-type="{{item.open_type}}" wx:if="{{item.navigator_url !== undefined}}" hover-class="none">
           <image src="{{item.image_src}}" />
         </navigator>
 

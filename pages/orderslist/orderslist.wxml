@@ -1,0 +1,41 @@
+<view>
+    <van-tabs active="{{ active }}" bind:change="tabChanged">
+        <van-tab title="全部">
+            <!-- repeat 组件并不是微信官方提供的，而是 WePY 框架提供的 -->
+            <view wx:for="{{allOrderList}}" wx:key="index">
+                <view class="sep_line"></view>
+                <van-panel title="{{'订单号：' + item.order_number}}">
+                    <block wx:for="{{item.order_detail}}" wx:key="index">
+                        <my-card num="{{item.count}}" price="{{item.price}}" title="{{item.name}}" thumb="{{item.pic}}" />
+                    </block>
+                    <!-- 商品件数，以及金额 -->
+                    <van-cell value="共{{item.total_count}}件商品，订单金额￥{{item.order_price}}" />
+                </van-panel>
+            </view>
+        </van-tab>
+        <van-tab title="待付款">
+            <view wx:for="{{waitOrderList}}" wx:key="index">
+               <view class="sep_line"></view>
+                <van-panel title="{{'订单号：' + item.order_number}}">
+                    <block wx:for="{{item.order_detail}}" wx:key="index">
+                        <my-card num="{{item.count}}" price="{{item.price}}" title="{{item.name}}" thumb="{{item.pic}}" />
+                    </block>
+                    <!-- 商品件数，以及金额 -->
+                    <van-cell value="共{{item.total_count}}件商品，订单金额￥{{item.order_price}}" />
+                </van-panel>
+            </view>
+        </van-tab>
+        <van-tab title="已付款">
+            <view wx:for="{{finishOrderList}}" wx:key="index">
+               <view class="sep_line"></view>
+                <van-panel title="{{'订单号：' + item.order_number}}">
+                    <block wx:for="{{item.order_detail}}" wx:key="index">
+                        <my-card num="{{item.count}}" price="{{item.price}}" title="{{item.name}}" thumb="{{item.pic}}" />
+                    </block>
+                    <!-- 商品件数，以及金额 -->
+                    <van-cell value="共{{item.total_count}}件商品，订单金额￥{{item.order_price}}" />
+                </van-panel>
+            </view>
+        </van-tab>
+    </van-tabs>
+</view>

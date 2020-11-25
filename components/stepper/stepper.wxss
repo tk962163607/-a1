@@ -1,0 +1,91 @@
+.stepper .reduce,
+.stepper .add {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    margin: 1px;
+    vertical-align: middle;
+    background-color: #f2f3f5;
+    border: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.stepper input {
+    display: inline-block;
+    width: 28px;
+    height: 24px;
+    padding: 1px;
+    margin: 1px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f2f3f5;
+    border: 0;
+    border-width: 1px 0;
+    border-radius: 0;
+    box-sizing: initial;
+    -webkit-appearance: none
+}
+
+
+/* 设置 按钮触发了点击事件的样式 */
+
+.stepper_reduce--hover,
+.stepper_add--hover {
+    background-color: #e8e8e8
+}
+
+
+/* 设置reduce 和 add 伪元素样式 */
+
+.stepper .reduce:after,
+.stepper .reduce:before,
+.stepper .add:after,
+.stepper .add:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background-color: #333;
+    content: ""
+}
+
+.stepper .reduce:before,
+.stepper .add:before {
+    width: 9px;
+    height: 1px
+}
+
+.stepper .reduce:after,
+.stepper .add:after {
+    width: 1px;
+    height: 9px
+}
+
+.stepper .reduce {
+    border-radius: 4px 0 0 4px
+}
+
+.stepper .reduce:after {
+    display: none
+}
+
+.stepper .add {
+    border-radius: 0 4px 4px 0
+}
+
+
+/* 设置 禁用的样式 */
+
+.stepper .reduce--disabled:after,
+.stepper .reduce--disabled:before,
+.stepper .add--disabled:after,
+.stepper .add--disabled:before {
+    background-color: #c9c9c9
+}

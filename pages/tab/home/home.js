@@ -16,7 +16,9 @@ Page({
         // 楼层区数据
         floorData: []
     },
-
+    onShow: function() {
+        console.log('Home页面show')
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -79,7 +81,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        getApp().updateTabBarBadge();
     },
 
     /**

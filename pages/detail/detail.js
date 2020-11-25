@@ -8,10 +8,10 @@ import utils from '../../utils/utils.js'
 
 import rpx2px from '../../utils/rpx2px.js'
 const { regeneratorRuntime } = global
+
 // 300rpx 在6s上为 150px
 const qrcodeWidth = rpx2px(300)
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -25,7 +25,8 @@ Page({
         // action-sheet 的item
         actionItems: ["保存", "分享"],
         // 是否显示 action-sheet
-        isShow: false
+        isShow: false,
+        total: Number
     },
     /**
      * 生命周期函数--监听页面加载
@@ -33,6 +34,17 @@ Page({
     onLoad: function(options) {
         this.data.pid = options.pid;
         this.requestGoodsDetail(options.pid)
+        getApp().watchTotal(this.watchCartsTotalCallBack)
+    },
+    /**
+     * 购物车数量的监听
+     * @param {*} total 
+     */
+    watchCartsTotalCallBack: function(total) {
+        // 只要 app.js 中的total数据改变了 就会触发这个函数，我们可以在里面进行页面的修改
+        this.setData({
+            total: total
+        })
     },
     /**
      * 加载商品详情数据
@@ -202,12 +214,31 @@ Page({
      * 添加到购物车
      */
     addToCart: function() {
-
+        getApp().addGoodsToCart(this.data.goodsInfo)
     },
     /**
      * 立即购买
      */
     onClickButton: function() {
+        // 点击了立即购买，需要跳转到订单页面，在这里我们可以跳转的时候传递一个type，来判断是商品详情页跳转的还是购物车跳转的
+        // 我们把当前商品的数据传递过去
+        let orderInfo = {
+            // 商品Id
+            id: this.data.goodsInfo.goods_id,
+            // 名称
+            name: this.data.goodsInfo.goods_name,
+            // 图片
+            pic: this.data.goodsInfo.goods_small_logo,
+            // 价格
+            price: this.data.goodsInfo.goods_price,
+            // 数量
+            count: 1,
+            // 是否默认被选中
+            isCheck: true
+        }
+        wx.navigateTo({
+            url: '/pages/order/order?type=detail&info=' + JSON.stringify(orderInfo)
+        });
 
     },
     /**
@@ -221,7 +252,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        this.setData({
+            total: getApp().globalData.total
+        })
     },
 
     /**
